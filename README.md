@@ -13,3 +13,5 @@ Function is a reusable block of code that can be used when it is called to perfo
     def greet()
         print("hello") 
 ```
+- Paramter : Parameter is a variable defined when a function is created which receives data when function is called.
+- Argument - Argument is the actual values passed to a function when it is called.
