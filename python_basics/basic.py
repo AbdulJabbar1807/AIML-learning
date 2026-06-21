@@ -5,3 +5,7 @@ name = input("Enter your name ") # '=' here is assignment operator , it copies t
 # Greet user 
 print(f"hello,{name}")
 print("hello,",name)
+
+print("hello ", name, sep='???')
+print("hello",end='')
+print(name)
