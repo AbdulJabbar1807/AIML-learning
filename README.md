@@ -6,7 +6,7 @@ A Variable is a container that is used to store data/values such as text,number,
     name = "AJ"
 ```
 
-## Funtion
+## Function
 Function is a reusable block of code that can be used when it is called to perform a specific task.
 
 ``` python
@@ -14,4 +14,5 @@ Function is a reusable block of code that can be used when it is called to perfo
         print("hello") 
 ```
 - Paramter : Parameter is a variable defined when a function is created which receives data when function is called.
-- Argument - Argument is the actual values passed to a function when it is called.
+- Argument : Argument is the actual values passed to a function when it is called.
+- Methods : Methods are the built in function associated with objects in python that performs action on those objects.
