@@ -1,3 +1,8 @@
+print("python\n" * 3 , end="")
+
 #for loop 
-for _ in [0,1,2]:
+for _ in range(3):
     print("python")
+    
+
+
