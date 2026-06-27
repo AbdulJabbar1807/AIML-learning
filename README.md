@@ -1,17 +1,20 @@
-## Variable
+# Variable
 A Variable is a container that is used to store data/values such as text,number,image,videos and many more information in the computer memory.
 
 ``` python
     a = 5
     name = "AJ"
 ```
-## DataTypes 
+# DataTypes 
 - int : every type of interger numbers.
 - float : every type of decimal numbers.
 - str : string values.
 - bool : Either 'True' or 'False'.
+- list : List is a datatype used to store multiple elements in a single variable.
+    - Ordered,Mutable and allows Duplicate values.
+- dictionary : Dictionaries are the set of key value pairs.
 
-## Function
+# Function
 Function is a reusable block of code that can be used when it is called to perform a specific task.
 
 ``` python
@@ -22,10 +25,10 @@ Function is a reusable block of code that can be used when it is called to perfo
 - Argument : Argument is the actual values passed to a function when it is called.
 - Methods : Methods are the built in function associated with objects in python that performs action on those objects.
 
-## Conditionals
+# Conditionals
 Conditional in python allows a program to make decision based on whether the condition is either True or False.
 
-#### Comparison Operator
+### Comparison Operator
 - '>' : greater than 
 - '<' : less than
 - '>=' : greater than equal to 
@@ -33,12 +36,22 @@ Conditional in python allows a program to make decision based on whether the con
 - '==' : equal to assignment
 - '!=' : not equal
 
-#### Conditional statements
+### Conditional statements
 - 'if'
 - 'elif'
 - 'else'
 
-#### Logical Operator
+### Logical Operator
 - 'or'
 - 'not'
 - 'and'
+
+# Loops
+Loop is a block of code that executes repeatedly until the condition becomes false or the all items in the collection have been processed.
+## Types of loops
+### While
+- A 'while' loop executes a code repeatedly **until the given condition is 'True'**.
+- Used to validate input or ask questions.
+### For
+- A 'For' loop executes a code until all items in a collection[list,string or range] are processed.
+- Used to iterate over items,printing number,process through string.
