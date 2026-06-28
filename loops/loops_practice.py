@@ -17,7 +17,7 @@ def main():
     count = get_number()
     count_down(count)
     
-    positive_interger(number)
+    positive_integer(number)
     
     print(iseven_number())
     
@@ -49,7 +49,7 @@ def hello(i):
 #Q2. Iterating over a list of strings
 def student(students):
     for student in range(len(students)):
-        print(students[student])
+        print(student)
 
 #Q3. Print star
 def print_star(star):
@@ -71,12 +71,12 @@ def greet(n):
         
 #Q6. Countdown
 def count_down(n):
-    for _ in range(n):
-        print(_+1)
+    for i in range(n):
+        print(n-i)
     print("Blast Off")
 
 #Q7. Positive interger
-def positive_interger(n):
+def positive_integer(n):
     return n
 
 #Q8. Even number validation
@@ -107,10 +107,10 @@ def table(num):
         
 #Q12. Sum of n numbers using loops
 def sum_of_num(number):
-    sum = 0
+    total = 0
     for i in range(1,number+1):
-        sum += i
-    return sum
+        total += i
+    return total
 
 #Q13. Factorial number
 def factorial(factorial):
@@ -119,14 +119,7 @@ def factorial(factorial):
         fact *= i
     return fact
 
-#Q14. Average of number's
-# def average(n):
-#     average = 0
-    
-#     for i in range(0,n):
-#         user_list = []
-#         num = input("> ")
-#         user_list.append(num)
+
         
 main()
 
