@@ -32,7 +32,7 @@ def main():
     
     print(factorial(number))
     
-    # print(average(number))
+    
     
 #Q1. Validating user input    
 def get_number():
