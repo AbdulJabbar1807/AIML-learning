@@ -18,8 +18,7 @@ def menu():
                 num = get_number()
                 result = factorial(num)
                 print(result)
-
-                    
+         
             case 4:
                 print(calculate_average())
                 
@@ -67,7 +66,6 @@ def display_menu():
 # User's choice
 def user_choice():
     return int(input("Enter your choice: "))
-
 
 # Valid input
 def get_number():
