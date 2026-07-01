@@ -40,10 +40,20 @@ def students_name(total_st):
     for _ in range(total_st):
         name = input("Enter your name: ")
         students.append(name)
+        
     print("Student's name")
     print("-"*40)
+    
     for student in students:
         print(f"-> {student}")
-    
+        
+    while True:
+        search_st = input("Enter the student to search in the list: ") 
+        for search in students:
+            if search == search_st:
+                print("found")
+                break
+        print("Not found")
+        break    
 
 main()
