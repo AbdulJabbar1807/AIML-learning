@@ -44,16 +44,19 @@ def students_name(total_st):
     print("Student's name")
     print("-"*40)
     
-    for student in students:
-        print(f"-> {student}")
+    for i in range(len(students)):
+        print(f"{i+1}. {students[i]}")
         
-    while True:
-        search_st = input("Enter the student to search in the list: ") 
-        for search in students:
-            if search == search_st:
-                print("found")
-                break
-        print("Not found")
-        break    
+    search_st = input("Enter the student you want to search in list: ").strip().title()
+    found = False
+    for search in students:
+        if search == search_st:
+            found = True
+            break
+    if found:
+        print(f"{search_st} is in the list.")
+    else:
+        print(f"{search_st} is not in the list.")
+        
 
 main()
