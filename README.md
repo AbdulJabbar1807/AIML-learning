@@ -12,7 +12,7 @@ A Variable is a container that is used to store data/values such as text,number,
 - bool : Either 'True' or 'False'.
 - list : List is a datatype used to store multiple elements in a single variable.
     - Ordered,Mutable and allows Duplicate values.
-- dictionary : Dictionaries are the set of key value pairs.
+- dictionary : Dictionaries are the set of key value pairs,label items so that they can be found instantly.
 
 # Function
 Function is a reusable block of code that can be used when it is called to perform a specific task.
