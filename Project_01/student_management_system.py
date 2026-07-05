@@ -41,7 +41,7 @@ def students_name(total_st):
         name = input("Enter your name: ")
         students.append(name)
         
-    print("Student's name")
+    print("'Student's name'")
     print("-"*40)
     
     for i in range(len(students)):
