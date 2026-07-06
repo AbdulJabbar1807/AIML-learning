@@ -3,9 +3,11 @@ student_details = [
     {"name":"Jabbar","Age":21},
     {"name":"Khokhar","Age":22}
 ]
-for st in student_details:
-    print(st["name"])
+for student in student_details:
+    print(student["name"])
     
 for age in student_details:
     print(age["Age"])
     
+for detail in student_details:
+    print(f"Name: {detail["name"]} and Age: {detail["Age"]}")
