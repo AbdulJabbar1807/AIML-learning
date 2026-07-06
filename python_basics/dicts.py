@@ -9,16 +9,16 @@ info = {"name":"Abdul Jabbar",
 
 info["College"] = "BTU"
 
-# print(info["name"],info["Age"])
-# print(info["course"])
-# print(info["College"])
-# print(info)
+print(info["name"],info["Age"])
+print(info["course"])
+print(info["College"])
+print(info)
 
-# info["Age"] = 22
-# print(info["Age"])
+info["Age"] = 22
+print(info["Age"])
 
-# del info["course"]
-# print(info)
+del info["course"]
+print(info)
 
 for key,value in info.items():
     print(f"{key} is {value}")
