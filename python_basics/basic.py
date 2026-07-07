@@ -17,8 +17,9 @@ students = [
     {"name":"Mohammed","branch":"AIML","year":"2nd"},
     {"name":"Ali","branch":"CY","year":"3rd"},
 ]
-for student in students:
-    print(student["name"],student["branch"],student["year"])
+    
+for student_detail in students:
+    print(f"Name : {student_detail["name"]},Branch : {student_detail["branch"]},Year : {student_detail["year"]}")
 
 
     
