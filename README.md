@@ -55,3 +55,23 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 ### For
 - A 'For' loop executes a code until all items in a collection[list,string or range] are processed.
 - Used to iterate over items,printing number,process through string.
+
+# Exception-handling
+## SyntaxError 
+- Grammatical mistakes made in the programming language.
+``` python
+    print("Abdul Jabbar) 'will give a SyntaxError'.
+```
+
+## ValueError
+- Invalid user input.
+``` python
+    x = int(input("What's x? "))
+    "if user enter's 'ab',it will give a ValueError."
+```
+
+## NameError
+- if a variable is not defined in the program.
+``` python
+    print(x) "will give a NameError,as 'x' is not defined."
+```
