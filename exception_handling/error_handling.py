@@ -1,8 +1,12 @@
-while True:
-    try:
-        number = int(input("What's the number? "))
-    except ValueError:
-        print("number is not an integer.")
-    else:
-        break
-print(f"Your entered number is {number}")
+def main():
+    x = get_integer("What's x? ")
+    print(f"x is {x}")
+
+def get_integer(prompt):
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            pass
+
+main()
