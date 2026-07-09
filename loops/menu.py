@@ -8,14 +8,14 @@ def menu():
         
         match choice:
             case 1:
-                side = get_number()
+                side = get_number("Enter the side of square? ")
                 square_pattern(side)
                 
             case 2:
                 print(password())     
                 
             case 3:
-                num = get_number()
+                num = get_number("Enter a number for factorial: ")
                 result = factorial(num)
                 print(result)
          
@@ -23,7 +23,7 @@ def menu():
                 print(calculate_average())
                 
             case 5:
-                number = get_number()
+                number = get_number("Enter 'N' number's: ")
                 print(sum_of_num(number))
                 
             case 6:
@@ -31,14 +31,14 @@ def menu():
                 print(f"Valid marks: {score}")
                 
             case 7:
-                num = get_number()
+                num = get_number("What's number for multiplication table? ")
                 table(num)
                 
             case 8:
                 print(iseven_number(),"is an even number.")
                 
             case 9:
-                count = get_number()
+                count = get_number("Enter number for count-down: ")
                 count_down(count)
                 
             case 10:
@@ -65,21 +65,27 @@ def display_menu():
 
 # User's choice
 def user_choice():
-    return int(input("Enter your choice: "))
+    while True:
+        try:
+            return int(input("Enter your choice: "))
+        except ValueError:
+            print("Please enter a valid choice.")
 
 # Valid input
-def get_number():
+def get_number(prompt):
     while True:
-        n = int(input("What's the number: "))
-        if n > 0:
-            return n
-        else:
-            print("Invalid input try again!")
+        try:
+            n = int(input(prompt))
+            if n > 0:
+                return n
+            print("Enter a number greater than zero.")
+        except ValueError:
+            print("Please enter a valid number.")
 
 # Square pattern-
 def square_pattern(side):
     for _ in range(side):
-        for j in range(side):
+        for _ in range(side):
             print("*",end="")
         print()
 
@@ -101,16 +107,17 @@ def factorial(num):
     
 # Calculate average of 'N' different number's.
 def calculate_average():
-    n = int(input("enter the 'n': "))
+    n = get_number("Enter value for 'N' digits: ")
+    
     item_list = []
     
-    for i in range(n):
-        num = int(input("enter the number: "))
+    for _ in range(n):
+        num = get_number("enter the number: ")
         item_list.append(num)
-
+        
     total_sum = 0
-    for j in item_list:
-        total_sum += j
+    for number in item_list:
+        total_sum += number
     average = total_sum/n
     return average
 
@@ -124,9 +131,9 @@ def sum_of_num(number):
 # Mark's validation.
 def marks():
     while True:
-        m = int(input("What's your marks? "))
-        if 0 <= m <= 100:
-            return m
+        mark = get_number("What's your marks? ")
+        if 0 <= mark <= 100:
+            return mark
         else:
             print("Invalid marks please try again!")
             
@@ -138,11 +145,11 @@ def table(num):
 # Even number validation
 def iseven_number():
     while True:
-        even_num = int(input("What's the number: "))
+        even_num = get_number("Enter a even number: ")
         if even_num % 2 == 0:
             return even_num
         else:
-            print("Invalid try again!")
+            print("Enter a valid even number.")
             
 # Countdown
 def count_down(n):
