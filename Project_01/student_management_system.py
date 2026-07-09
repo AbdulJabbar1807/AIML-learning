@@ -3,60 +3,42 @@ def main():
 
 def menu():
     while True:
-        display_menu()
+        display_choice()
         choice = user_choice()
-    
         match choice:
             case 1:
-                total_st = get_number()
-                students_name(total_st)
-
+                number_of_student = get_number()
+                add_student(number_of_student)
+            
             case 2:
-                print("Thankyou")
+                print("Thankyou.")
                 break
             
             case _:
-                print("Invalid choice try again!")
+                print("Please enter a valid input.")
     
-    
-def display_menu():
-    print("Choose option's-")
-    print("1.Student's list")
-    print("2.Exit")
+def display_choice():
+    print("1.Add Student.")
+    print("1.Exit.")
     
 def user_choice():
-    return int(input("Enter your choice: "))
-
+    while True:
+        try:
+            return int(input("Enter your choice: "))
+        except ValueError:
+            print("Please enter a valid choice.")
+            
 def get_number():
     while True:
-        n = int(input("Enter number: "))
-        if n>0:
-            return n
-        else:
-            print("Invalid number,try again.")
-
-def students_name(total_st):
-    students = []
-    for _ in range(total_st):
-        name = input("Enter your name: ")
-        students.append(name)
-        
-    print("'Student's name'")
-    print("-"*40)
+        try:
+            n = int(input("Enter a positive number: "))
+            if n > 0:
+                return n
+            print("Enter a number greater than zero.")
+        except ValueError:
+            print("Please enter a valid input.")
+            
+def add_student(total_student):
+    student = []
     
-    for i in range(len(students)):
-        print(f"{i+1}. {students[i]}")
-        
-    search_st = input("Enter the student you want to search in list: ").strip().title()
-    found = False
-    for search in students:
-        if search == search_st:
-            found = True
-            break
-    if found:
-        print(f"{search_st} is in the list.")
-    else:
-        print(f"{search_st} is not in the list.")
-        
-
-main()
+menu()
