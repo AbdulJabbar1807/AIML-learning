@@ -2,15 +2,19 @@ def main():
     menu()
 
 def menu():
+    all_student = []
     while True:
         display_choice()
         choice = user_choice()
         match choice:
             case 1:
-                number_of_student = get_number()
-                add_student(number_of_student)
-            
+                add_student(all_student)
+                
             case 2:
+                v = all_student
+                view_student(v)
+            
+            case 3:
                 print("Thankyou.")
                 break
             
@@ -18,8 +22,9 @@ def menu():
                 print("Please enter a valid input.")
     
 def display_choice():
-    print("1.Add Student.")
-    print("1.Exit.")
+    print("1.Add Student's.")
+    print("2.View Student's.")
+    print("3.Exit.")
     
 def user_choice():
     while True:
@@ -38,7 +43,15 @@ def get_number():
         except ValueError:
             print("Please enter a valid input.")
             
-def add_student(total_student):
-    student = []
+def add_student(student):
+    name = input("Enter student name: ")
+    student.append(name)
+
+def view_student(view):
+    print("-"*50)
+    print("Student's name.")
+    for v in view:
+        print(f"->{v}")
+        
     
 menu()
