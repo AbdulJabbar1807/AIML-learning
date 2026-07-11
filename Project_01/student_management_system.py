@@ -11,8 +11,7 @@ def menu():
                 add_student(all_student)
                 
             case 2:
-                view = all_student
-                view_student(view)
+                view_student(all_student)
             
             case 3:
                 print("Thankyou.")
@@ -45,15 +44,21 @@ def get_number():
             print("Please enter a valid input.")
             
 def add_student(student):
-    stu_id = input("Enter your student ID: ")
-    student.append({"ID":stu_id})
-    student[0]["name"] = input("Enter student name: ")
+    name = input("Enter your name: ")
+    student_id = len(student) + 1
+    new_student = {
+        "id":student_id,
+        "name":name
+    }
+    student.append(new_student)
 
-def view_student(view):
-    print("-"*50)
-    print("Student's name.")
-    for v in view:
-        print(f"Id: {v["ID"]},Name: {v["name"]}")
+def view_student(view_st):
+    if view_st == []:
+        print("There is no student list to show!")
+    else:
+        print("-"*50)
+        print("Student's name.")
+        for view in view_st:
+            print(f'Id: {view["id"]} ,Name: {view["name"]}')
         
-    
 menu()
