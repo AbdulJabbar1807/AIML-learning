@@ -12,8 +12,11 @@ def menu():
                 
             case 2:
                 view_student(all_student)
-            
+                
             case 3:
+                search_student(all_student)
+            
+            case 4:
                 print("Thankyou.")
                 break
             
@@ -24,7 +27,8 @@ def display_choice():
     print("Choose the choice.")
     print("1.Add Student's.")
     print("2.View Student's.")
-    print("3.Exit.")
+    print("3.Search Student's.")
+    print("4.Exit.")
     
 def user_choice():
     while True:
@@ -33,10 +37,10 @@ def user_choice():
         except ValueError:
             print("Please enter a valid choice.")
             
-def get_number():
+def get_number(prompt):
     while True:
         try:
-            n = int(input("Enter a positive number: "))
+            n = int(input(prompt))
             if n > 0:
                 return n
             print("Enter a number greater than zero.")
@@ -60,5 +64,20 @@ def view_student(view_st):
         print("Student's name.")
         for view in view_st:
             print(f'Id: {view["id"]} ,Name: {view["name"]}')
-        
+            
+def search_student(student_list):
+    if student_list == []:
+        print("There are no student's to search in the list.")
+    else:
+        search = get_number("Enter the student ID to search: ")
+        is_search = False
+        for student in student_list:
+            if (search == student["id"]):
+                is_search = True
+                break
+        if is_search:
+            print(f"Student with ID {search} is in the list")
+        else:
+            print(f"Student with ID {search} is not in the list.")
+
 menu()
