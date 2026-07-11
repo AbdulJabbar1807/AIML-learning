@@ -15,8 +15,11 @@ def menu():
                 
             case 3:
                 search_student(all_student)
-            
+                
             case 4:
+                delete_student(all_student)
+            
+            case 5:
                 print("Thankyou.")
                 break
             
@@ -28,7 +31,8 @@ def display_choice():
     print("1.Add Student's.")
     print("2.View Student's.")
     print("3.Search Student's.")
-    print("4.Exit.")
+    print("4.Delete Student's.")
+    print("5.Exit.")
     
 def user_choice():
     while True:
@@ -72,9 +76,22 @@ def search_student(student_list):
         search = get_number("Enter the student ID to search: ")
         for student in student_list:
             if student["id"] == search:
-                print(f"Student with ID: {student["id"]} and Name: {student["name"]} is in the list.")
+                print(f'Student with ID: {student["id"]} and Name: {student["name"]} is in the list.')
                 break
         else:
             print(f"Student with ID: {search} is not in the list.")
+            
+def delete_student(student_list):
+    if student_list == []:
+        print("Nothing to delete as no student are there in the list.")
+    else:
+        search = get_number("Enter the student ID to remove student: ")
+        for student in student_list:
+            if student["id"] == search:
+                student_list.remove(student)
+                print("Student successfully removed from the list.")
+                break
+        else:
+            print(f"no student with ID: {search} exist to remove from the list.")
 
 menu()
