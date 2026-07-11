@@ -70,14 +70,11 @@ def search_student(student_list):
         print("There are no student's to search in the list.")
     else:
         search = get_number("Enter the student ID to search: ")
-        is_search = False
         for student in student_list:
-            if (search == student["id"]):
-                is_search = True
+            if student["id"] == search:
+                print(f"Student with ID: {student["id"]} and Name: {student["name"]} is in the list.")
                 break
-        if is_search:
-            print(f"Student with ID {search} is in the list")
         else:
-            print(f"Student with ID {search} is not in the list.")
+            print(f"Student with ID: {search} is not in the list.")
 
 menu()
