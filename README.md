@@ -60,7 +60,7 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 ## SyntaxError 
 - Grammatical mistakes made in the programming language.
 ``` python
-    print("Abdul Jabbar) 'will give a SyntaxError'.
+    print("Abdul Jabbar") 'will give a SyntaxError'.
 ```
 
 ## ValueError
@@ -75,3 +75,29 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 ``` python
     print(x) "will give a NameError,as 'x' is not defined."
 ```
+# Libraries
+## modules
+- Module in python is a library that has many functions or a feature built into it.
+
+### import
+- The import keyword in python allows you to import content,features or function's from a module.
+``` python
+    import random
+    coin = random.choice(["heads","tails"])
+    print(coin)
+```
+
+### from
+- The from keyword in python allows you to import a specific content,feature or function from a module.
+``` python 
+    from random import choice
+    coin = choice(["heads","tails"])
+    print(coin) 'will generate a 50-50 chances of heads and tails.
+```
+## packages
+- Packages are the thrid party libraries that can be used to access many functions,features,etc.
+    - to get this packages,these can be downloaded from PYPi Python Packages Index (pypi.org).
+    - pip an built in packages installer in python.
+    ``` python
+        pip install cowsay
+    ```
