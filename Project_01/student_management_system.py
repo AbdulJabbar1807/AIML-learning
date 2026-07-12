@@ -1,3 +1,5 @@
+import sys
+
 def main():
     menu()
 
@@ -23,8 +25,9 @@ def menu():
                 update_student(all_student)
             
             case 6:
-                print("Thankyou.")
-                break
+                print("Thankyou for using SMS.")
+                print("Successfully shutdown the system.")
+                sys.exit()
             
             case _:
                 print("Please enter a valid input.")
@@ -113,4 +116,5 @@ def update_student(student_list):
         else:
             print(f"No student with ID: {update} found in the list.")
 
-menu()
+if __name__ == "__main__":
+    menu()
