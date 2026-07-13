@@ -1,10 +1,10 @@
 import sys
 
 def main():
-    menu()
-
-def menu():
     all_student = []
+    menu(all_student)
+
+def menu(all_student):
     while True:
         display_choice()
         choice = user_choice()
