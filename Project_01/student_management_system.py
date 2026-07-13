@@ -30,7 +30,7 @@ def menu():
                 sys.exit()
             
             case _:
-                print("Please enter a valid input.")
+                print("Please choose from the given choice's.")
     
 def display_choice():
     print("Choose the choice.")
