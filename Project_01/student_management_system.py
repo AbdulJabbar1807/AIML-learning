@@ -59,11 +59,11 @@ def get_number(prompt):
             print("Please enter a valid input.")
             
 def add_student(student_list):
-    name = input("Enter your name: ")
+    name = input("Enter your name: ").strip().title()
     if not student_list:
         student_id = 1
     else:
-        student_id = max(s["id"] for s in student_list)
+        student_id = max(s["id"] for s in student_list) + 1
     new_student = {
         "id":student_id,
         "name":name
@@ -74,10 +74,11 @@ def view_student(view_st):
     if not view_st:
         print("There is no student list to show!")
     else:
+        print("Student's Info-")
+        print("ID     Name")
         print("-"*50)
-        print("Student's name.")
         for view in view_st:
-            print(f'Id: {view["id"]} ,Name: {view["name"]}')
+            print(f'{view["id"]}     {view["name"]}')
             
 def search_student(student_list):
     if not student_list:
@@ -111,7 +112,7 @@ def update_student(student_list):
         update = get_number("Enter the student ID to update student detail's: ")
         for student in student_list:
             if student["id"] == update:
-                student["name"] = input("Enter name you want's to: ")
+                student["name"] = input("Enter name you want's to: ").strip().title()
                 break
         else:
             print(f"No student with ID: {update} found in the list.")
