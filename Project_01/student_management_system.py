@@ -118,4 +118,4 @@ def update_student(student_list):
             print(f"No student with ID: {update} found in the list.")
 
 if __name__ == "__main__":
-    menu()
+    main()
