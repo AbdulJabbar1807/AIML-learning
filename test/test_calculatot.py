@@ -1,6 +1,6 @@
 import pytest
 
-from calculator import square
+from unit_test.calculator import square
 
 def test_positive_number():
     assert square(2) == 4
