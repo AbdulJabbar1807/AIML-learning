@@ -10,7 +10,8 @@ def menu(all_student):
         choice = user_choice()
         match choice:
             case 1:
-                add_student(all_student)
+                name = input("Enter your name: ").strip().title()
+                add_student(all_student,name)
                 
             case 2:
                 view_student(all_student)
@@ -58,8 +59,7 @@ def get_number(prompt):
         except ValueError:
             print("Please enter a valid input.")
             
-def add_student(student_list):
-    name = input("Enter your name: ").strip().title()
+def add_student(student_list,name):
     if not student_list:
         student_id = 1
     else:
