@@ -17,13 +17,17 @@ def menu(all_student):
                 view_student(all_student)
                 
             case 3:
-                search_student(all_student)
+                search = get_number("Enter the student ID to search: ")
+                search_student(all_student,search)
                 
             case 4:
-                delete_student(all_student)
+                delete = get_number("Enter the student ID to remove student: ")
+                delete_student(all_student,delete)
                 
             case 5:
-                update_student(all_student)
+                update = get_number("Enter the student ID to update student detail's: ")
+                name = input("Enter name you want's to: ").strip().title()
+                update_student(all_student,update,name)
             
             case 6:
                 print("Thankyou for using SMS.")
@@ -80,11 +84,10 @@ def view_student(view_st):
         for view in view_st:
             print(f'{view["id"]}     {view["name"]}')
             
-def search_student(student_list):
+def search_student(student_list,search):
     if not student_list:
         print("There are no student's to search in the list.")
     else:
-        search = get_number("Enter the student ID to search: ")
         for student in student_list:
             if student["id"] == search:
                 print(f'Student with ID: {student["id"]} and Name: {student["name"]} is in the list.')
@@ -92,11 +95,10 @@ def search_student(student_list):
         else:
             print(f"Student with ID: {search} is not in the list.")
             
-def delete_student(student_list):
+def delete_student(student_list,delete):
     if not student_list:
         print("Nothing to delete as no student are there in the list.")
     else:
-        delete = get_number("Enter the student ID to remove student: ")
         for student in student_list:
             if student["id"] == delete:
                 student_list.remove(student)
@@ -105,14 +107,13 @@ def delete_student(student_list):
         else:
             print(f"no student with ID: {delete} exist to remove from the list.")
 
-def update_student(student_list):
+def update_student(student_list,update,name):
     if not student_list:
         print("No such student to update in the list.")
     else:
-        update = get_number("Enter the student ID to update student detail's: ")
         for student in student_list:
             if student["id"] == update:
-                student["name"] = input("Enter name you want's to: ").strip().title()
+                student["name"] = name
                 break
         else:
             print(f"No student with ID: {update} found in the list.")
