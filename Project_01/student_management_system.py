@@ -114,6 +114,8 @@ def delete_student(student_list,delete):
             if student["id"] == delete:
                 student_list.remove(student)
                 print("Student successfully removed from the list.")
+                for index,student in enumerate(student_list,start=1):
+                    student["id"] = index
                 break
         else:
             print(f"no student with ID: {delete} exist to remove from the list.")
