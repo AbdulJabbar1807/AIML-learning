@@ -10,7 +10,7 @@ def menu(all_student):
         choice = user_choice()
         match choice:
             case 1:
-                name = input("Enter your name: ").strip().title()
+                name = get_name("Enter the Student's Name: ")
                 add_student(all_student,name)
                 
             case 2:
@@ -26,7 +26,7 @@ def menu(all_student):
                 
             case 5:
                 update = get_number("Enter the student ID to update student detail's: ")
-                name = input("Enter name you want's to: ").strip().title()
+                name = get_name("What's the Student Name to update: ")
                 update_student(all_student,update,name)
             
             case 6:
@@ -62,6 +62,17 @@ def get_number(prompt):
             print("Enter a number greater than zero.")
         except ValueError:
             print("Please enter a valid input.")
+            
+def get_name(prompt):
+    while True:
+            n = input(prompt).title().strip()
+            if n.replace(" ","") == "":
+                print("Name cant be empty!")
+            elif n.replace(" ","").isalpha():
+                return n
+            else:
+                print("Please enter alphabetical letter's only.")
+                
             
 def add_student(student_list,name):
     if not student_list:
