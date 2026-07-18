@@ -101,3 +101,15 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
     ``` python
         pip install cowsay
     ```
+
+# Unit-test
+## Pytest 
+- Pytest is a python package that allows you to test function's working by checking all the possible cases as well as corner cases.
+
+# File Input/Output
+## Open 
+- Open keyword in python allows us to open a text file where we can save data from python file in computer's memory.
+
+<!-- ## With
+- With keyword in python  -->
+    
