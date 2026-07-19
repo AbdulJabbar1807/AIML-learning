@@ -110,6 +110,9 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 ## Open 
 - Open keyword in python allows us to open a text file where we can save data from python file in computer's memory.
 
-<!-- ## With
-- With keyword in python  -->
+## With-Statement
+- 'With' statement in python allows us to open a file and automatically closes and save the '.txt' file.
+
+## Sorted
+- Sorted is a built in python method allows us to sort '.txt' file in alphabetical order.
     
