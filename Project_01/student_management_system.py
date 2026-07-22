@@ -1,9 +1,10 @@
 import sys
+import csv
 
 def main():
     all_student = []
     menu(all_student)
-
+       
 def menu(all_student):
     while True:
         display_choice()
@@ -30,6 +31,7 @@ def menu(all_student):
                 update_student(all_student,update,name)
             
             case 6:
+                students_details_csv(all_student) 
                 print("Thankyou for using SMS.")
                 print("Successfully shutdown the system.")
                 sys.exit()
@@ -52,6 +54,12 @@ def user_choice():
             return int(input("Enter your choice: "))
         except ValueError:
             print("Please enter a valid choice.")
+            
+def students_details_csv(student_list):
+    with open("student_management_system.csv","w",newline="") as file:
+        writer = csv.DictWriter(file,fieldnames=["id","name"])
+        writer.writeheader()
+        writer.writerows(student_list)
             
 def get_number(prompt):
     while True:
