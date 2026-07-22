@@ -2,36 +2,37 @@ import sys
 import csv
 
 def main():
-    all_student = []
-    menu(all_student)
+    all_students = []
+    read_students_details_csv(all_students)
+    menu(all_students)
        
-def menu(all_student):
+def menu(all_students):
     while True:
         display_choice()
         choice = user_choice()
         match choice:
             case 1:
                 name = get_name("Enter the Student's Name: ")
-                add_student(all_student,name)
+                add_student(all_students,name)
                 
             case 2:
-                view_student(all_student)
+                view_student(all_students)
                 
             case 3:
-                search = get_number("Enter the student ID to search: ")
-                search_student(all_student,search)
+                search_id = get_number("Enter the student ID to search: ")
+                search_student(all_students,search_id)
                 
             case 4:
-                delete = get_number("Enter the student ID to remove student: ")
-                delete_student(all_student,delete)
+                delete_id = get_number("Enter the student ID to remove student: ")
+                delete_student(all_students,delete_id)
                 
             case 5:
-                update = get_number("Enter the student ID to update student detail's: ")
+                update_id = get_number("Enter the student ID to update student detail's: ")
                 name = get_name("What's the Student Name to update: ")
-                update_student(all_student,update,name)
+                update_student(all_students,update_id,name)
             
             case 6:
-                students_details_csv(all_student) 
+                write_students_details_csv(all_students) 
                 print("Thankyou for using SMS.")
                 print("Successfully shutdown the system.")
                 sys.exit()
@@ -40,7 +41,7 @@ def menu(all_student):
                 print("Please choose from the given choice's.")
     
 def display_choice():
-    print("Choose the choice.")
+    print("Choose the choice's.")
     print("1.Add Student's.")
     print("2.View Student's.")
     print("3.Search Student's.")
@@ -55,11 +56,17 @@ def user_choice():
         except ValueError:
             print("Please enter a valid choice.")
             
-def students_details_csv(student_list):
+def write_students_details_csv(student_list):
     with open("student_management_system.csv","w",newline="") as file:
         writer = csv.DictWriter(file,fieldnames=["id","name"])
         writer.writeheader()
         writer.writerows(student_list)
+          
+def read_students_details_csv(student_list):
+    with open("student_management_system.csv","r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            student_list.append({"id":int(row['id']),"name":row['name']})          
             
 def get_number(prompt):
     while True:
@@ -75,7 +82,7 @@ def get_name(prompt):
     while True:
             n = input(prompt).title().strip()
             if n.replace(" ","") == "":
-                print("Name cant be empty!")
+                print("Name can't be empty!")
             elif n.replace(" ","").isalpha():
                 return n
             else:
@@ -93,14 +100,14 @@ def add_student(student_list,name):
     }
     student_list.append(new_student)
 
-def view_student(view_st):
-    if not view_st:
+def view_student(view_student):
+    if not view_student:
         print("There is no student list to show!")
     else:
         print("Student's Info-")
         print("ID     Name")
         print("-"*50)
-        for view in view_st:
+        for view in view_student:
             print(f'{view["id"]}     {view["name"]}')
             
 def search_student(student_list,search):
