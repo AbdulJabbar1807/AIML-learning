@@ -33,7 +33,7 @@ def menu(all_students):
             
             case 6:
                 write_students_details_csv(all_students) 
-                print("Thankyou for using SMS.")
+                print("Thank you for using SMS.")
                 print("Successfully shutdown the system.")
                 sys.exit()
             
@@ -41,7 +41,7 @@ def menu(all_students):
                 print("Please choose from the given choice's.")
     
 def display_choice():
-    print("Choose the choice's.")
+    print("Main Menu.")
     print("1.Add Student's.")
     print("2.View Student's.")
     print("3.Search Student's.")
@@ -66,7 +66,8 @@ def read_students_details_csv(student_list):
     with open("student_management_system.csv","r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            student_list.append({"id":int(row['id']),"name":row['name']})          
+            row["id"] = int(row["id"])
+            student_list.append(row)          
             
 def get_number(prompt):
     while True:
@@ -104,11 +105,11 @@ def view_student(view_student):
     if not view_student:
         print("There is no student list to show!")
     else:
-        print("Student's Info-")
-        print("ID     Name")
-        print("-"*50)
+        print("Students Info-")
+        print(f"{"ID":<6}{"Name":<20}")
+        print("-"*40)
         for view in view_student:
-            print(f'{view["id"]}     {view["name"]}')
+            print(f'{view["id"]:<6}{view["name"]:<20}')
             
 def search_student(student_list,search):
     if not student_list:
@@ -119,7 +120,7 @@ def search_student(student_list,search):
                 print(f'Student with ID: {student["id"]} and Name: {student["name"]} is in the list.')
                 break
         else:
-            print(f"Student with ID: {search} is not in the list.")
+            print(f"Student with ID {search} is not in the list.")
             
 def delete_student(student_list,delete):
     if not student_list:
@@ -131,7 +132,7 @@ def delete_student(student_list,delete):
                 print("Student successfully removed from the list.")
                 break
         else:
-            print(f"no student with ID: {delete} exist to remove from the list.")
+            print(f"no student with ID {delete} exist to remove from the list.")
 
 def update_student(student_list,update,name):
     if not student_list:
@@ -142,7 +143,7 @@ def update_student(student_list,update,name):
                 student["name"] = name
                 break
         else:
-            print(f"No student with ID: {update} found in the list.")
+            print(f"No student with ID {update} found in the list.")
 
 if __name__ == "__main__":
     main()
