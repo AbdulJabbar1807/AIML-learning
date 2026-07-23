@@ -42,11 +42,11 @@ def menu(all_students):
     
 def display_choice():
     print("Main Menu.")
-    print("1.Add Student's.")
-    print("2.View Student's.")
-    print("3.Search Student's.")
-    print("4.Delete Student's.")
-    print("5.Update Student detail.")
+    print("1.Add Students.")
+    print("2.View Students.")
+    print("3.Search Students.")
+    print("4.Delete Students.")
+    print("5.Update Students Name.")
     print("6.Exit.")
     
 def user_choice():
@@ -61,12 +61,11 @@ def write_students_details_csv(student_list):
         writer = csv.DictWriter(file,fieldnames=["id","name"])
         writer.writeheader()
         writer.writerows(student_list)
-          
+        
 def read_students_details_csv(student_list):
     with open("student_management_system.csv","r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            row["id"] = int(row["id"])
             student_list.append(row)          
             
 def get_number(prompt):
@@ -94,7 +93,7 @@ def add_student(student_list,name):
     if not student_list:
         student_id = 1
     else:
-        student_id = max(s["id"] for s in student_list) + 1
+        student_id = max(int(s["id"]) for s in student_list) + 1
     new_student = {
         "id":student_id,
         "name":name
