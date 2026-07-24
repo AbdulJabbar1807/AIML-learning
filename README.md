@@ -57,26 +57,26 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 - Used to iterate over items,printing number,process through string.
 
 # Exception-handling
-## SyntaxError 
+### SyntaxError 
 - Grammatical mistakes made in the programming language.
 ``` python
     print("Abdul Jabbar") 'will give a SyntaxError'.
 ```
 
-## ValueError
+### ValueError
 - Invalid user input.
 ``` python
     x = int(input("What's x? "))
     "if user enter's 'ab',it will give a ValueError."
 ```
 
-## NameError
+### NameError
 - if a variable is not defined in the program.
 ``` python
     print(x) "will give a NameError,as 'x' is not defined."
 ```
 # Libraries
-## modules
+### modules
 - Module in python is a library that has many functions or a feature built into it.
 
 ### import
@@ -94,7 +94,7 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
     coin = choice(["heads","tails"])
     print(coin) 'will generate a 50-50 chances of heads and tails.
 ```
-## packages
+### packages
 - Packages are the thrid party libraries that can be used to access many functions,features,etc.
     - to get this packages,these can be downloaded from PYPi Python Packages Index (pypi.org).
     - pip an built in packages installer in python.
@@ -103,16 +103,44 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
     ```
 
 # Unit-test
-## Pytest 
+### Pytest 
 - Pytest is a python package that allows you to test function's working by checking all the possible cases as well as corner cases.
 
 # File Input/Output
-## Open 
+### Open 
 - Open keyword in python allows us to open a text file where we can save data from python file in computer's memory.
 
-## With-Statement
+### With-Statement
 - 'With' statement in python allows us to open a file and automatically closes and save the '.txt' file.
 
-## Sorted
+### Sorted
 - Sorted is a built in python method allows us to sort '.txt' file in alphabetical order.
     
+# Regular Expression
+- Regular Expression (regex) are patterns or expressions used to detect,check,validate or replace text such as email address,URL,phone number,etc. 
+
+### Regular expression patterns
+- '.' any character excpet a newline
+- '*' 0 or more repetitions
+- '+' 1 or more repetitions
+- '?' 0 or 1 repetition
+- '{m}' m repetitions
+- '{m,n}' m-n repetitions
+- '^' matches the start of the string
+- '$' matched the end of the string or just before the newline just before the end of the string
+- '[]' set of character
+- '[^]' complementing the set
+- '\d' decimal digit
+- '\D' not a decimal digit
+- '\s' whitespace character
+- '\S' not a whitespace character
+- '\w' words character as well as numbers and underscore
+- '\W' not a word character
+- 'A|B' either A or B
+- '(...)' group
+- '(?:...) non-capturing version'
+
+### Flags
+- re.IGNORECASE
+- re.MULTILINE
+- re.DOTALL
