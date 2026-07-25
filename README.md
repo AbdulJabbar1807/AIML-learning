@@ -144,3 +144,6 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 - re.IGNORECASE
 - re.MULTILINE
 - re.DOTALL
+
+### Walrus operator
+- ':=' it allows us to assign values from right to left and also check for a boolean condition if True or False.
