@@ -1,7 +1,7 @@
 import re
 email = input("What's your email address: ")
 
-if re.search(r"^\w+@(\w+\.)?\w+\.(com|edu|gov|org|in)$",email,re.DOTALL):
+if re.fullmatch(r"^\w+@(\w+\.)?\w+\.(com|edu|gov|org|in)$",email,re.IGNORECASE):
     print("Valid email address.")
 else:
     print("Invalid email address.")
