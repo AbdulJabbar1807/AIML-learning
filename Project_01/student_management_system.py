@@ -86,7 +86,7 @@ def get_number(prompt):
 def get_name(prompt):
     while True:
         name = input(prompt).strip().title()
-        if re.search(r"^[a-zA-Z ]+'?$",name):
+        if re.search(r"^[a-zA-Z]?[a-zA-Z ]+'?$",name):
             return name
         else:
             print("Please enter name in alphabetical letters only!")
@@ -94,7 +94,7 @@ def get_name(prompt):
 def get_email(prompt):
     while True:
         email = input(prompt)
-        if re.search(r"^[a-z0-9_\.]+@[a-z]+(\.[a-z0-9-]+)?\.(com|gov|in|edu|org)$",email,re.IGNORECASE):
+        if re.search(r"^[a-z0-9_\.]+@[a-z0-9]+\.([a-z0-9-]+\.)?(com|gov|in|edu|org)$",email,re.IGNORECASE):
             return email
         print("Please enter a valid email address.")
                  
@@ -130,18 +130,16 @@ def search_student(student_list,search):
                 break
         else:
             print(f"Student with ID {search} is not in the list.")
-            
+          
 def delete_student(student_list,delete):
     if not student_list:
         print("Nothing to delete as no student are there in the list.")
+    initial_list = len(student_list)
+    student_list[:] = [s for s in student_list if s["id"]!=delete]
+    if len(student_list)<initial_list:
+        print(f"Student with ID {delete} removed successfully.")
     else:
-        for student in student_list:
-            if student["id"] == delete:
-                student_list.remove(student)
-                print("Student successfully removed from the list.")
-                break
-        else:
-            print(f"no student with ID {delete} exist to remove from the list.")
+        print(f"No student with ID {delete} exist in the list.")
 
 def update_student(student_list,update,name):
     if not student_list:
