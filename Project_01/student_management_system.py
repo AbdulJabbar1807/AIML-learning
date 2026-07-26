@@ -1,5 +1,6 @@
 import sys
 import csv
+import re
 
 def main():
     all_students = []
@@ -13,7 +14,8 @@ def menu(all_students):
         match choice:
             case 1:
                 name = get_name("Enter the Student's Name: ")
-                add_student(all_students,name)
+                email = get_email("What's your email address: ")
+                add_student(all_students,name,email)
                 
             case 2:
                 view_student(all_students)
@@ -58,16 +60,19 @@ def user_choice():
             
 def write_students_details_csv(student_list):
     with open("student_management_system.csv","w",newline="") as file:
-        writer = csv.DictWriter(file,fieldnames=["id","name"])
+        writer = csv.DictWriter(file,fieldnames=["id","name","email"])
         writer.writeheader()
         writer.writerows(student_list)
         
 def read_students_details_csv(student_list):
-    with open("student_management_system.csv","r") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            student_list.append(row)          
-            
+    try:
+        with open("student_management_system.csv","r") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                student_list.append({"id":int(row["id"]),"name":row["name"],"email":row["email"]})          
+    except FileNotFoundError:
+        print("There is no file to view.")        
+    
 def get_number(prompt):
     while True:
         try:
@@ -80,23 +85,28 @@ def get_number(prompt):
             
 def get_name(prompt):
     while True:
-            n = input(prompt).title().strip()
-            if n.replace(" ","") == "":
-                print("Name can't be empty!")
-            elif n.replace(" ","").isalpha():
-                return n
-            else:
-                print("Please enter alphabetical letter's only.")
-                
-            
-def add_student(student_list,name):
+        name = input(prompt).strip().title()
+        if re.search(r"^[a-zA-Z ]+'?$",name):
+            return name
+        else:
+            print("Please enter name in alphabetical letters only!")
+        
+def get_email(prompt):
+    while True:
+        email = input(prompt)
+        if re.search(r"^[a-z0-9_\.]+@[a-z]+(\.[a-z0-9-]+)?\.(com|gov|in|edu|org)$",email,re.IGNORECASE):
+            return email
+        print("Please enter a valid email address.")
+                 
+def add_student(student_list,name,email):
     if not student_list:
         student_id = 1
     else:
-        student_id = max(int(s["id"]) for s in student_list) + 1
+        student_id = max(s["id"] for s in student_list) + 1
     new_student = {
         "id":student_id,
-        "name":name
+        "name":name,
+        "email":email
     }
     student_list.append(new_student)
 
@@ -105,10 +115,10 @@ def view_student(view_student):
         print("There is no student list to show!")
     else:
         print("Students Info-")
-        print(f"{"ID":<6}{"Name":<20}")
-        print("-"*40)
+        print(f"{"ID":<6}{"Name":<25}{"Email":<20}")
+        print("-"*70)
         for view in view_student:
-            print(f'{view["id"]:<6}{view["name"]:<20}')
+            print(f'{view["id"]:<6}{view["name"]:<25}{view["email"]:<20}')
             
 def search_student(student_list,search):
     if not student_list:
