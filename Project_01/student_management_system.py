@@ -94,10 +94,10 @@ def get_name(prompt):
 def get_email(prompt):
     while True:
         email = input(prompt)
-        if re.search(r"^[a-z0-9_\.]+@[a-z0-9]+\.([a-z0-9-]+\.)?(com|gov|in|edu|org)$",email,re.IGNORECASE):
+        if re.search(r"^[a-z0-9_\.]+@[a-z0-9-]+\.([a-z0-9-]+\.)?(com|gov|in|edu|org)$",email,re.IGNORECASE):
             return email
         print("Please enter a valid email address.")
-                 
+        
 def add_student(student_list,name,email):
     if not student_list:
         student_id = 1
@@ -126,7 +126,7 @@ def search_student(student_list,search):
     else:
         for student in student_list:
             if student["id"] == search:
-                print(f'Student with ID: {student["id"]} and Name: {student["name"]} is in the list.')
+                print(f'Student with ID: {student["id"]},Name: {student["name"]} and Email: {student["email"]}is in the list.')
                 break
         else:
             print(f"Student with ID {search} is not in the list.")
