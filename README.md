@@ -13,6 +13,14 @@ A Variable is a container that is used to store data/values such as text,number,
 - list : List is a datatype used to store multiple elements in a single variable.
     - Ordered,Mutable and allows Duplicate values.
 - dictionary : Dictionaries are the set of key value pairs,label items so that they can be found instantly.
+- tuple : A tuple is a datatype,a collection of values which are immutable.
+    - Also on returning more than one values from a function is also treated as a tuple.
+    ``` python
+        def get_student():
+            name = input("Name: ")
+            branch = input("Branch: ")
+            return (name,branch) "This will be returned as a single value as a tupleand inside this tuple are this two values."
+    ```
 
 # Function
 Function is a reusable block of code that can be used when it is called to perform a specific task.
@@ -147,3 +155,12 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 
 ### Walrus operator
 - ':=' it allows us to assign values from right to left and also check for a boolean condition if True or False.
+
+# Object-Oriented Programming(OOP)
+### Classes
+- Classes in python allows us to invent our own Datatypes in python and give them a name.
+    - Class is an definetion of new datatype or a blueprint.
+    - Atributes:properties of sort that allows us to assign values inside them.
+
+### Objects
+- Objects are the instances of class,they are simpler things created from blueprint(class).
