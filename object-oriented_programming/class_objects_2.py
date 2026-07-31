@@ -1,9 +1,9 @@
 class Book: # class
     def __init__(self,id,title,author) -> None: # constructor
-        # self - its a built in variable in python,with it python automatically passes object as the first argument.
+        # self - its a parameter in python that refers to current object,with it python automatically passes object as the first argument when an instance method is called.
         self.id = id    # -> atomic.id = id        #instance variable or Attribute
         self.title = title      #instance variable or Attribute
-        self.author = author    # instance variable or Attribute
+        self.author = author.upper()    # instance variable or Attribute
         
     def display(self):   # -> display(atomic)   # Method-functions it can perform.
         print(f"Id: {self.id}") # -> atomic.id
