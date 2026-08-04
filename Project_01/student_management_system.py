@@ -115,10 +115,10 @@ def view_student(view_student):
         print("There is no student list to show!")
     else:
         print("Students Info-")
-        print(f"{"ID":<6}{"Name":<25}{"Email":<20}")
+        print(f"{"Sr.No.":<3}{"ID":<6}{"Name":<25}{"Email":<20}")
         print("-"*70)
-        for view in view_student:
-            print(f'{view["id"]:<6}{view["name"]:<25}{view["email"]:<20}')
+        for index,view in enumerate(view_student,start=1):
+            print(f'{index}.{view["id"]:<6}{view["name"]:<25}{view["email"]:<20}')
             
 def search_student(student_list,search):
     if not student_list:
