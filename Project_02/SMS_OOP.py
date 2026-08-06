@@ -1,8 +1,17 @@
-class Studentmanagement:
-    students = []
-    def __init__(self) -> None:
-        ...
+import sys
 
+class StudentManagement():
+    def __init__(self) -> None:
+        self.students = []
+        
+    def add_student(self,id,name,email):
+        student = Student(id,name,email)
+        self.students.append(student)
+        
+    def view_student(self):
+        for student in self.students:
+            print(student)
+    
 class Student:
     def __init__(self,id,name,email) -> None:
         self.id = id
@@ -11,10 +20,37 @@ class Student:
         
     def __str__(self) -> str:
         return f"ID: {self.id},Name: {self.name} and Email: {self.email}"
-    
-student1 = Studentmanagement.students.append(Student(1,"abdul","abdul@gmail.com"))
-student2 = Studentmanagement.students.append(Student(2,"Ali","ali@gmail.com"))
 
-print(Studentmanagement.students[0])
-print(Studentmanagement.students[1])
+def main():
+    sms = StudentManagement()
+    menu(sms)
+
+def menu(sms):
+    while True:
+        display_menu()
+        choice = int(input("Enter your choice: "))
+        match choice:
+            case 1:
+                id = int(input("Enter your student id: "))
+                name = input("What's your name: ")
+                email = input("Enter your email address: ")
+                sms.add_student(id,name,email)
+            case 2:
+                sms.view_student()
+            case 3:
+                print("Thankyou for using SMS.")
+                sys.exit()
+            case _:
+                print("Please enter only positive integer only.")
+
+def display_menu():
+        print("Main Menu-")
+        print("1.Add Students.")
+        print("2.View Students.")
+        print("3.Exit.")               
+
+if __name__ == "__main__":
+    main()
+
+
 
