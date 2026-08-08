@@ -27,9 +27,10 @@ class StudentManagement():
         else:
             return "Student is not in the list."
         
-    def update_student(self,update,id,name,email):
+    def update_student(self,update):
         for student in self.students:
             if student.id == update:
+                id,name,email = update_details()
                 student.update(id,name,email)
                 return "Student successfully updated."
         else:
@@ -59,7 +60,11 @@ def menu(sms):
         choice = get_number("Enter your choice: ")
         match choice:
             case 1:
-                id = get_number("Enter your student id: ")
+                if sms.students == []:
+                    id = 1
+                else:
+                    for student in sms.students:
+                        id = student.id + 1
                 name = input("What's your name: ")
                 email = input("Enter your email address: ")
                 sms.add_student(id,name,email)
@@ -68,8 +73,11 @@ def menu(sms):
                 
             case 3:
                 search = get_number("Enter student ID to search in SMS: ")
-                id,name,email = sms.search_student(search)
-                print(f"Student detail-\nID: {id}\nName: {name}\nEmail: {email}")
+                if len(sms.search_student(search)) == 3:
+                    id,name,email = sms.search_student(search)
+                    print(f"Student detail-\nID: {id}\nName: {name}\nEmail: {email}")
+                else:
+                    print(sms.search_student(search))
                 
             case 4:
                 delete = get_number("Enter student ID to delete from SMS: ")
@@ -77,8 +85,8 @@ def menu(sms):
                 
             case 5:
                 update = get_number("Enter student ID detail to update Student in SMS: ")
-                id,name,email = update_details()
-                print(sms.update_student(update,id,name,email))            
+                print(sms.update_student(update))
+           
             case 6:
                 print("Thankyou for using SMS.")
                 sys.exit()
