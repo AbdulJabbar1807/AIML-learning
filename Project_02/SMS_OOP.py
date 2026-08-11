@@ -1,4 +1,5 @@
 import sys
+import re
 
 class StudentManagement():
     def __init__(self) -> None:
@@ -65,7 +66,7 @@ def menu(sms):
                 else:
                     for student in sms.students:
                         id = student.id + 1
-                name = input("What's your name: ")
+                name = get_name("What's your student name: ")
                 email = input("Enter your email address: ")
                 sms.add_student(id,name,email)
             case 2:
@@ -110,6 +111,14 @@ def get_number(prompt):
                 return n
         except ValueError:
             print("Enter only positive integer.")
+            
+def get_name(prompt):
+    while True:
+        name = input(prompt)
+        if name := re.search(r"^[A-Za-z \?]",name):
+            return name
+        else:
+            print("Please enter name in correct format.")
             
 def update_details():
     new_id = get_number("Enter your new id: ")
