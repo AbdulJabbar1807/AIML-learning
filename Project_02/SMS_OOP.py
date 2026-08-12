@@ -67,7 +67,7 @@ def menu(sms):
                     for student in sms.students:
                         id = student.id + 1
                 name = get_name("What's your student name: ")
-                email = input("Enter your email address: ")
+                email = get_email("Enter your email address: ")
                 sms.add_student(id,name,email)
             case 2:
                 sms.view_student()
@@ -119,6 +119,14 @@ def get_name(prompt):
             return name
         else:
             print("Please enter name in correct format.")
+            
+def get_email(prompt):
+    while True:
+        email = input(prompt)
+        if email := re.search(r"^[a-z0-9.-]+@[a-z]\.(com|org|edu)?",email):
+            return email
+        else:
+            print("Please enter email in correct format.")
             
 def update_details():
     new_id = get_number("Enter your new id: ")
