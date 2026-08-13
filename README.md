@@ -1,3 +1,6 @@
+# Introduction
+- This will cover the fundamentals of python programming from basic to advanced including functions,Object oriented programming,regex expressions,file I/O,etc. 
+
 # Variable
 A Variable is a container that is used to store data/values such as text,number,image,videos and many more information in the computer memory.
 
@@ -160,7 +163,16 @@ Loop is a block of code that executes repeatedly until the condition becomes fal
 ### Classes
 - Classes in python allows us to invent our own Datatypes in python and give them a name.
     - Class is an definetion of new datatype or a blueprint.
-    - Atributes:properties of sort that allows us to assign values inside them.
+    - Attributes:properties of sort that allows us to assign values inside them.
 
 ### Objects
 - Objects are the instances of class,they are simpler things created from blueprint(class).
+
+### methods
+- Classes comes with some methods which can be defined by us these are just a function inside of a class,which behave in a special way.
+
+### __init__()
+- Dunder init method or instance methods in python 
+
+### decorator
+- decorators are functions which modifies the behavior of other function.
