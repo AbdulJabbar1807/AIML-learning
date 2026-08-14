@@ -7,8 +7,16 @@ class Car:
     def __str__(self):
         return f"Car details: Vehicle type-{self.vehicle_type},Brand name-{self.brand},Price-Rs.{self.price}"
     
+    @classmethod
+    def get(cls):
+        vehicle_type = input("enter vehicle type: ")
+        brand = input("Enter brand name: ")
+        price = int(input("Enter car price: "))
+        return cls(vehicle_type,brand,price)
+        
+    
 def main():
-    car_1 = Car("SUV","BMW",8000000)
+    car_1 = Car.get()
     print(car_1)
     
 if __name__ == "__main__":
