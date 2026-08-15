@@ -13,11 +13,11 @@ class Car:
         brand = input("Enter brand name: ")
         price = int(input("Enter car price: "))
         return cls(vehicle_type,brand,price)
-        
     
 def main():
     car_1 = Car.get()
-    print(car_1)
+    car_2 = Car.get()
+    print(f"{car_1}\n{car_2}")
     
 if __name__ == "__main__":
     main()
