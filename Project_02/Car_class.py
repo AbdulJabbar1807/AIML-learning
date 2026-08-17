@@ -17,7 +17,8 @@ class Car:
 def main():
     car_1 = Car.get()
     car_2 = Car.get()
-    print(f"{car_1}\n{car_2}")
+    car_3 = Car.get()
+    print(f"{car_1}\n{car_2}\n")
     
 if __name__ == "__main__":
     main()
