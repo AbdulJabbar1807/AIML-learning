@@ -19,7 +19,8 @@ def main():
     car_2 = Car.get()
     car_3 = Car.get()
     car_4 = Car.get()
-    print(f"{car_1}\n{car_2}\n{car_3}\n{car_4}")
+    car_5 = Car.get()
+    print(f"{car_1}\n{car_2}\n{car_3}\n{car_4}\n{car_5}")
     
 if __name__ == "__main__":
     main()
